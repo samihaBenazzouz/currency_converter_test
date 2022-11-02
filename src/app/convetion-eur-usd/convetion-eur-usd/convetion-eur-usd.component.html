@@ -1,0 +1,110 @@
+<div class="row container mx-auto">
+    <div class="container-fluid title">
+        <p class="h1"> 
+            <span >Currency Converter</span>
+           
+        </p>
+        <br>
+        <div class="text-center">
+            <h2>
+                <span >Taux de change : </span> <span >{{taux_change.toFixed(3)}}</span> <span > le :</span>
+                <span > {{date| date :'short'}} </span>
+            </h2>
+           
+        </div>
+  <br>
+    </div>
+   
+   
+    <main class="child">
+       
+  <div class="container-fluid main ">
+    <div class="row   card">
+<br>
+
+        <form  [formGroup]="myGroup"  class="form-inline ">
+           
+
+
+
+
+            <div class="row ">
+
+                
+
+              
+                <div class="col-sm ">
+                    
+                  
+                        <label>montant {{currencyCodeConvert}} : </label>
+                        <div class="input-group mb-3">
+                            <input formControlName="montantEur" autocomplete="off" class="form-control"  [(ngModel)]="montant_eur" >
+                            
+                            <select  formControlName="curency_value" (change)="onChangeMontant(montant_eur,currency)" [(ngModel)]="currency"  >
+                               
+                                <option *ngFor="let choice of switch_currency"  [value]="choice.value" >
+                                    {{choice.name}}
+                                    
+                                </option>
+                         
+                            </select>
+                       
+                        </div>
+                        <mat-error *ngIf="!myGroup.controls['montantEur'].valid">saisir un montant valide</mat-error>
+               
+                </div>
+                <div class="col-sm">
+                    <label for="name">Montant {{currencyCode}} : </label>
+                    <div class="input-group mb-3">
+                                <input formControlName="montantUSD" class="form-control" [(ngModel)]="usd_convert" [value]="montant_usd" >
+                                <span class="input-group-text" >{{currencyCode}}</span>
+                </div>
+                </div>
+                <div class="col-sm">
+                    <label for="name">Taux de Change Fixe: </label>
+                <div class="input-group mb-3">
+        
+                  <input formControlName="taux_fixe" class="form-control" [(ngModel)]="taux"  (change)="tauxChange(taux)"  >
+                </div>
+                <mat-error *ngIf="!myGroup.controls['taux_fixe'].valid" [hidden]="disabled">saisir un taux valide </mat-error>
+                </div>
+            </div>
+           
+        </form>
+        </div>
+  </div>
+      <br><br>
+       
+            <div class="card">
+                <div class="row ">
+                <h2 class="text-center"><span id="currency_title">Historique</span></h2>
+
+            
+                <table class="table-responsive" id="historique">
+                    <tr>
+                       
+                            <th>Taux Réel</th>
+                            <th>Taux Fixe</th>
+                            <th>Valeur Initiale</th>
+                            <th>Valeur Calculée</th>
+                   
+                       
+                    </tr>
+                    <tr *ngFor="let histo of historiques">
+                        <td >{{histo.taux_reel}}</td>
+                        <td >{{histo.taux_fixe}}</td>
+                        <td >{{histo.valeur_init}} </td>
+                        <td >{{histo.valeur_cal}}</td>
+                    </tr>
+    
+                </table>
+                
+            </div>
+           <br>
+        </div>
+      <br>
+
+ 
+    </main>
+   
+  </div>

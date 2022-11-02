@@ -1,0 +1,50 @@
+.h1 {
+  font-weight: bold;
+  font-size: 4em;
+  // text-transform: uppercase;
+  
+  padding-top: 24px;
+  text-align: center;
+  color: #009597;
+}
+
+h2{
+  color: #006a4e;
+  font-size: 2em;
+  text-transform: uppercase;
+  
+  padding-top: 24px;
+}
+#currency_title{
+color:#006a4e
+}
+label{
+color:#009597
+}
+.text-center{
+text-align: center !important;
+}
+
+.table-responsive#historique{
+width: 90%;
+margin: auto;
+}
+.table-responsive#historique th{
+text-align: center;
+font-weight: bold;
+font-size: 16px;
+border: 1px solid #006a4e;
+color:#009597
+}
+.table-responsive#historique td{
+
+font-size: 16px;
+border: 1px solid #006a4e
+}
+
+.card{
+  border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(35 55 80 / 30%) 0px 6px 12px;
+    padding: 48px;
+}
